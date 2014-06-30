@@ -1,0 +1,10 @@
+
+<p class="checkpoint-question-question">{{text}}</p>
+<form>
+    <ul>
+    {{#each choices}}
+        <li><label><input type="radio" name="checkpoint-question" value="{{value}}"> {{choice}}</label></li>
+    {{/each}}    
+    </ul>
+</form>
+<div class="checkpoint-question-feedback"></div> <!-- .checkpoint-quiz-feedback -->

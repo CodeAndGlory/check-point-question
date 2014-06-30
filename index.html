@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Check Point Quiz</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="demo/css/checkpointquestion.css?v=1.0">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="checkPointQuestion/handlebars-v1.3.0.js"></script>
+    <script src="checkPointQuestion/jquery.checkpointquestion.js"></script>
+
+    <script type="text/javascript">
+
+        $(function(){
+
+            var questions = [
+                                {
+                                    "id" : 1, // unique id for question to determine optional order
+                                    "text" : "What color is the sky?",
+                                    "choices" : [
+                                                {"value": "a", "choice": "The color is red!"},
+                                                {"value": "b", "choice": "The color is blue!"},
+                                                {"value": "c", "choice": "The color is yellow!"},
+                                                {"value": "d", "choice": "The color is green!"}
+                                            ],
+                                    "answer": "b"
+                                },
+
+                                {
+                                    "id" : 2,
+                                    "text" : "What color is the grass?",
+                                    "choices" : [
+                                                {"value": "a", "choice": "The color is red!"},
+                                                {"value": "b", "choice": "The color is blue!"},
+                                                {"value": "c", "choice": "The color is yellow!"},
+                                                {"value": "d", "choice": "The color is green!"}
+                                            ],
+                                    "answer": "d"
+                                }
+                            ];
+
+            
+            // example accepting variable
+            $('.example-check-point').checkPointQuestion({
+                template: "checkpointquestion.template.html", // requried
+                questions: questions // optional
+            });
+
+            // example accepting file
+            $('.example-check-point-2').checkPointQuestion({
+                template: "checkpointquestion.template.html", // requried
+                file: "check-point-questions.json", // optional
+                questionID: [2,1] // question order specified
+            });
+
+        });
+
+    </script>
+
+</head>
+    <body>
+        <h1>checkPointQuestion jQuery Plugin</h1> 
+
+        <h2>Questions Passed in by Variable</h2>
+
+        <p>No question order is specified, and default feedback is used.</p>
+
+        <p>NOTE: when the question order is not specified, the order is reflected by the order of the question objects in the array.</p>
+  
+        <div class="example-check-point check-point-question">
+        </div> <!-- END .check-point-question -->    
+
+        <div class="example-check-point check-point-question">
+        </div> <!-- END .check-point-question -->
+
+        <h2>Questions Passed in by File</h2>
+
+        <p>Question order specified.</p>
+
+        <div class="example-check-point-2 check-point-question">
+        </div> <!-- END .checkpoint-question -->    
+
+        <p>Question has custom feedback, see json file for configuration examples.</p>
+        <div class="example-check-point-2 check-point-question">
+        </div> <!-- END .check-point-question -->
+
+    </body>
+</html>
